@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FrontPageComponent } from './front-page/front-page.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
-  declarations: [
-    FrontPageComponent
+  declarations: [HeaderComponent
   ],
   imports: [
     BrowserModule,
