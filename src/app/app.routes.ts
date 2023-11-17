@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { FrontPageComponent } from './front-page/front-page.component';
+import { PlayersPageComponent } from './players-page/players-page.component';
 
 export const routes: Routes = [
   {
-    path: 'login', component: FrontPageComponent
+    path: 'players', component: PlayersPageComponent
   }
 ];
