@@ -3,13 +3,17 @@ ul{
   flex-direction: row;
   justify-content: space-between;
   padding: 0px;
+  background-color: #000000;
+  font-size: 22px;
+  color: white;
 }
 
 
 li {
   list-style: none;
+  color: #333;
 }
 
 .logo{
-  width: 40px;
+  width: 75px;
 }
