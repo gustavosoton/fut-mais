@@ -10,6 +10,11 @@ table {
     padding: 8px;
     text-align: left;
 
+    img {
+      vertical-align: middle; // Alinha verticalmente a imagem ao texto
+      margin-right: 10px; // Espaçamento à direita da imagem (opcional)
+    }
+
 
   }
   th {
