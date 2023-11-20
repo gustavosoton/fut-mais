@@ -1,0 +1,29 @@
+// Estilos para a tabela
+$table-width: 50%; // Largura da tabela
+
+table {
+  border-collapse: collapse;
+  width: $table-width; // Define a largura da tabela
+  margin: 0 auto; // Centraliza a tabela horizontalmente
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+
+
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  .centralizado {
+    text-align: center; // Centraliza o conteúdo desta célula
+  }
+ }
+
+
+// Estilos para o corpo da página
+body {
+  text-align: center; // Centraliza conteúdo verticalmente
+  margin: 0; // Remove margens padrão do corpo da página
+  padding: 20px; // Adiciona um espaçamento interno para melhor visualização
+}
