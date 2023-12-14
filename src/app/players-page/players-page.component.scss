@@ -32,3 +32,29 @@ body {
   margin: 0; // Remove margens padrão do corpo da página
   padding: 20px; // Adiciona um espaçamento interno para melhor visualização
 }
+
+
+// styles.scss
+
+// styles.scss
+
+// styles.scss
+
+// styles.scss
+
+.player-row {
+  td {
+    position: relative;
+
+    .player-link {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease; // Adicionando transição para suavizar a mudança de cor
+
+      &:hover {
+        color: #000000; // Altere para a cor desejada ao passar o cursor sobre o link
+        text-decoration: underline; // Adicionando sublinhado ao passar o cursor sobre o link
+      }
+    }
+  }
+}
