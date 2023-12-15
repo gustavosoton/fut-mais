@@ -7,28 +7,27 @@ ul {
   font-size: 22px;
   color: #FFFF;
   margin: 0px;
+  align-items: center; /* Centraliza verticalmente os itens */
+}
 
-  li {
-    list-style: none;
+li {
+  list-style: none;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-      position: relative;
+a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
 
-      &:hover {
-        &:after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: -3px; /* Ajuste conforme necessário para a posição do sublinhado */
-          width: 100%;
-          height: 1px; /* Altura do sublinhado */
-          background-color: #ffffff; /* Cor do sublinhado ao passar o cursor sobre o link */
-        }
-      }
-    }
-  }
+a:hover:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Ajuste conforme necessário para a posição do sublinhado */
+  width: 100%;
+  height: 1px; /* Altura do sublinhado */
+  background-color: #ffffff; /* Cor do sublinhado ao passar o cursor sobre o link */
 }
 
 .logo {

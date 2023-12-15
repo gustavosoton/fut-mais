@@ -1,18 +1,18 @@
-// Estilos para a tabela
-$table-width: 50%; // Largura da tabela
+
+$table-width: 50%;
 
 table {
   border-collapse: collapse;
-  width: $table-width; // Define a largura da tabela
-  margin: 0 auto; // Centraliza a tabela horizontalmente
+  width: $table-width;
+  margin: 0 auto;
   th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 
     img {
-      vertical-align: middle; // Alinha verticalmente a imagem ao texto
-      margin-right: 10px; // Espaçamento à direita da imagem (opcional)
+      vertical-align: middle;
+      margin-right: 10px;
     }
 
 
@@ -21,26 +21,20 @@ table {
     background-color: #f2f2f2;
   }
   .centralizado {
-    text-align: center; // Centraliza o conteúdo desta célula
+    text-align: center;
   }
  }
 
 
-// Estilos para o corpo da página
+
 body {
-  text-align: center; // Centraliza conteúdo verticalmente
-  margin: 0; // Remove margens padrão do corpo da página
-  padding: 20px; // Adiciona um espaçamento interno para melhor visualização
+  text-align: center;
+  margin: 0;
+  padding: 20px;
 }
 
 
-// styles.scss
 
-// styles.scss
-
-// styles.scss
-
-// styles.scss
 
 .player-row {
   td {
@@ -49,11 +43,11 @@ body {
     .player-link {
       text-decoration: none;
       color: inherit;
-      transition: color 0.3s ease; // Adicionando transição para suavizar a mudança de cor
+      transition: color 0.3s ease;
 
       &:hover {
-        color: #000000; // Altere para a cor desejada ao passar o cursor sobre o link
-        text-decoration: underline; // Adicionando sublinhado ao passar o cursor sobre o link
+        color: #000000;
+        text-decoration: underline;
       }
     }
   }
