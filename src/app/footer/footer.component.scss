@@ -4,64 +4,42 @@ footer {
 
   .logo-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centraliza os elementos */
     align-items: center;
-    flex-wrap: wrap; /* Permite que os elementos quebrem para a próxima linha se não couberem */
 
     .logo-text {
       display: flex;
       align-items: center;
-      margin: 0 10px;
-      text-decoration: none;
+      margin-left: 20px; /* Espaçamento entre a imagem e o texto/logos */
       color: white;
 
-      img {
-        width: 50px; /* Ajuste o tamanho conforme necessário */
-        height: auto;
-        transition: transform 0.3s ease;
+      .additional-text {
+        font-size: 14px;
+        margin-right: 20px;
+      }
 
-        &:hover {
-          transform: scale(1.1); /* Efeito de escala no hover */
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        margin-right: 20px;
+
+        img {
+          width: 50px; /* Ajuste o tamanho conforme necessário */
+          height: auto;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1); /* Efeito de escala no hover */
+          }
         }
-      }
 
-      span {
-        margin-left: 5px;
-        font-size: 12px; /* Tamanho do texto ao lado do logo */
-      }
-    }
-
-    a {
-      display: flex;
-      align-items: center;
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
-
-      img {
-        width: 50px; /* Ajuste o tamanho conforme necessário */
-        height: auto;
-        transition: transform 0.3s ease;
-
-        &:hover {
-          transform: scale(1.1); /* Efeito de escala no hover */
+        span {
+          margin-left: 5px;
+          font-size: 12px; /* Tamanho do texto ao lado do logo */
         }
-      }
 
-      span {
-        margin-left: 5px;
-        font-size: 12px; /* Tamanho do texto ao lado do logo */
-      }
-    }
-
-    .additional-image {
-      display: flex;
-      align-items: center;
-      margin: 0 10px;
-
-      img {
-        width: 50px; /* Ajuste o tamanho conforme necessário */
-        height: auto;
       }
     }
   }
