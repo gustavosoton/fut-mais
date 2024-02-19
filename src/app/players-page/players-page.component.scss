@@ -1,54 +1,25 @@
-
 $table-width: 50%;
 
 table {
   border-collapse: collapse;
   width: $table-width;
-  margin: 0 auto;
-  th, td {
+  table {
+    margin: 0 auto;
+  }
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  th,
+  td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-
-    img {
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-
-
   }
   th {
     background-color: #f2f2f2;
   }
   .centralizado {
     text-align: center;
-  }
- }
-
-
-
-body {
-  text-align: center;
-  margin: 0;
-  padding: 20px;
-}
-
-
-
-
-.player-row {
-  td {
-    position: relative;
-
-    .player-link {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: #000000;
-        text-decoration: underline;
-      }
-    }
   }
 }

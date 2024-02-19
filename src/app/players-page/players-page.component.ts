@@ -1,13 +1,73 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Sort, MatSortModule } from '@angular/material/sort';
+import { Players } from '../../shared/models/player.dto';
 
 @Component({
   selector: 'app-players-page',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './players-page.component.html',
-  styleUrl: './players-page.component.scss'
+  styleUrl: './players-page.component.scss',
+  imports: [CommonModule, MatSortModule],
 })
-export class PlayersPageComponent {
+export class PlayersPageComponent implements OnInit {
+  sortedData: Players[] = [];
+  players: Players[] = [];
 
+  ngOnInit(): void {
+    this.fetchPlayers();
+  }
+
+  async fetchPlayers() {
+    const response = await fetch('https://randomuser.me/api/');
+    const data = await response.json();
+    for (let i = 0; i < 10; i++) {
+      if (data.results[i]) {
+        console.log(data.results[i]);
+        this.players.push({
+          nome: data.results[i].name.first,
+          posicao: 'Atacante',
+          clube: 'Barcelona FC',
+          idade: data.results[i].dob.age,
+          nacionalidade: data.results[i].location.country,
+          pontuacao: Math.floor(Math.random() * 100),
+        });
+      }
+    }
+    this.sortedData = this.players.slice();
+  }
+
+  constructor() {}
+
+  sortData(sort: Sort) {
+    const data = this.players.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedData = data;
+      return;
+    }
+
+    this.sortedData = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'nome':
+          return this.compare(a.nome, b.nome, isAsc);
+        case 'posicao':
+          return this.compare(a.posicao, b.posicao, isAsc);
+        case 'clube':
+          return this.compare(a.clube, b.clube, isAsc);
+        case 'idade':
+          return this.compare(a.idade, b.idade, isAsc);
+        case 'nacionalidade':
+          return this.compare(a.nacionalidade, b.nacionalidade, isAsc);
+        case 'pontuacao':
+          return this.compare(a.pontuacao, b.pontuacao, isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
+
+  compare(a: number | string, b: number | string, isAsc: boolean) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
 }
