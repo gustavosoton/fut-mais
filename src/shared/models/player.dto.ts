@@ -4,5 +4,6 @@ export interface Players {
   clube: string;
   idade: number;
   nacionalidade: string;
-  pontuacao: number
+  pontuacao: number;
+  img: string;
 }

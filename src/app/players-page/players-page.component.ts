@@ -16,10 +16,19 @@ export class PlayersPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchPlayers();
+
+    fetch('https://api.api-futebol.com.br/v1/campeonatos/2', {
+      headers: {
+        Authorization: 'test_49bd49e7427f4e9e4811e262f5083e',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error('Erro:', error));
   }
 
   async fetchPlayers() {
-    const response = await fetch('https://randomuser.me/api/');
+    const response = await fetch('https://randomuser.me/api/?results=10');
     const data = await response.json();
     for (let i = 0; i < 10; i++) {
       if (data.results[i]) {
@@ -31,6 +40,7 @@ export class PlayersPageComponent implements OnInit {
           idade: data.results[i].dob.age,
           nacionalidade: data.results[i].location.country,
           pontuacao: Math.floor(Math.random() * 100),
+          img: data.results[i].picture.thumbnail,
         });
       }
     }

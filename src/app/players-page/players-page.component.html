@@ -11,7 +11,10 @@
 
     @for (players of sortedData; track players) {
     <tr>
-      <td>{{ players.nome }}</td>
+      <td>
+        {{ players.nome }}
+        <img src="{{ players.img }}" alt="Player Image" />
+      </td>
       <td>{{ players.posicao }}</td>
       <td>{{ players.clube }}</td>
       <td>{{ players.idade }}</td>
