@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Sort, MatSortModule } from '@angular/material/sort';
 import { Players } from '../../shared/models/player.dto';
+import { getDatabase, ref, onValue, get, child } from 'firebase/database';
 
 @Component({
   selector: 'app-players-page',
@@ -16,15 +17,23 @@ export class PlayersPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchPlayers();
+    const dbRef = ref(getDatabase());
 
-    fetch('https://api.api-futebol.com.br/v1/campeonatos/2', {
-      headers: {
-        Authorization: 'test_49bd49e7427f4e9e4811e262f5083e',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error('Erro:', error));
+    getImageURL(
+      'https://firebasestorage.googleapis.com/v0/b/futmais-7da3f.appspot.com/o/Goalkeppers%2FGK-%20Alisson%20Becker.jpg?alt=media&token=f8baba47-cc5f-4178-a2e2-1129ad5db51d'
+    );
+
+    get(child(dbRef, `users/`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+        } else {
+          console.log('No data available');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   async fetchPlayers() {
@@ -32,7 +41,6 @@ export class PlayersPageComponent implements OnInit {
     const data = await response.json();
     for (let i = 0; i < 10; i++) {
       if (data.results[i]) {
-        console.log(data.results[i]);
         this.players.push({
           nome: data.results[i].name.first,
           posicao: 'Atacante',
@@ -50,27 +58,26 @@ export class PlayersPageComponent implements OnInit {
   constructor() {}
 
   sortData(sort: Sort) {
-    const data = this.players.slice();
     if (!sort.active || sort.direction === '') {
-      this.sortedData = data;
+      this.sortedData = this.players.slice();
       return;
     }
 
-    this.sortedData = data.sort((a, b) => {
+    this.sortedData = this.players.slice().sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'nome':
-          return this.compare(a.nome, b.nome, isAsc);
         case 'posicao':
-          return this.compare(a.posicao, b.posicao, isAsc);
         case 'clube':
-          return this.compare(a.clube, b.clube, isAsc);
-        case 'idade':
-          return this.compare(a.idade, b.idade, isAsc);
         case 'nacionalidade':
-          return this.compare(a.nacionalidade, b.nacionalidade, isAsc);
+          return this.compare(a[sort.active], b[sort.active], isAsc);
+        case 'idade':
         case 'pontuacao':
-          return this.compare(a.pontuacao, b.pontuacao, isAsc);
+          return this.compare(
+            Number(a[sort.active]),
+            Number(b[sort.active]),
+            isAsc
+          );
         default:
           return 0;
       }
@@ -80,4 +87,7 @@ export class PlayersPageComponent implements OnInit {
   compare(a: number | string, b: number | string, isAsc: boolean) {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
+}
+function getImageURL(p0: string) {
+  throw new Error('Function not implemented.');
 }

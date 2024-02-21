@@ -1,5 +1,10 @@
 $table-width: 50%;
 
+.div-table {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
 table {
   border-collapse: collapse;
   width: $table-width;
