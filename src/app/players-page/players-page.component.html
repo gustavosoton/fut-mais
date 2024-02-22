@@ -1,4 +1,4 @@
-<!-- <div class="div-table">
+<div class="div-table">
   <table matSort (matSortChange)="sortData($event)">
     <tr>
       <th mat-sort-header="nome">Nome</th>
@@ -9,18 +9,10 @@
       <th mat-sort-header="pontuacao">Pontuação</th>
     </tr>
 
-    @for (players of sortedData; track players) {
+    @for (time of times; track times) {
     <tr>
-      <td>
-        {{ players.nome }}
-        <img src="{{ players.img }}" alt="Player Image" />
-      </td>
-      <td>{{ players.posicao }}</td>
-      <td>{{ players.clube }}</td>
-      <td>{{ players.idade }}</td>
-      <td>{{ players.nacionalidade }}</td>
-      <td>{{ players.pontuacao }}</td>
+      <td>{{ time.nomeTime }}</td>
     </tr>
     }
   </table>
-</div> -->
+</div>
