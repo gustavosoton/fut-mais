@@ -3,6 +3,7 @@ import { PlayersPageComponent } from './players-page/players-page.component';
 
 export const routes: Routes = [
   {
-    path: 'players', component: PlayersPageComponent
-  }
+    path: 'players',
+    component: PlayersPageComponent,
+  },
 ];
