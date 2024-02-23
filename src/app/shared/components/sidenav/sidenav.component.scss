@@ -1,0 +1,27 @@
+.sidenav-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.right-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.sambarilove {
+  width: 15.625rem;
+  .mdc-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 0px;
+    gap: 0.625rem;
+  }
+}

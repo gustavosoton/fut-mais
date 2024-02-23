@@ -1,0 +1,51 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sambarilove" flex layout="column">
+    <mat-nav-list>
+      <a mat-raised-button href="/players"
+        ><span>Jogadores</span>
+        <mat-icon>person</mat-icon>
+      </a>
+      <a mat-raised-button href="/players"
+        ><span>Team Uploader</span>
+        <mat-icon>group</mat-icon>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        mat-icon-button
+        class="icon"
+        aria-label="icon-button with menu icon"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Fut Mais</span>
+
+      <span class="spacer"></span>
+      <div class="right-buttons">
+        <a href="/players" class="icon">
+          <button
+            mat-mini-fab
+            color="link"
+            aria-label="Example icon button with a home icon"
+          >
+            <mat-icon>home</mat-icon>
+          </button>
+        </a>
+        <a href="/players">
+          <button
+            mat-mini-fab
+            color="link"
+            aria-label="Example icon button with a home icon"
+          >
+            <mat-icon>share</mat-icon>
+          </button>
+        </a>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
