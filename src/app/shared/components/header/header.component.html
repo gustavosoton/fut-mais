@@ -1,0 +1,53 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="icon"
+    aria-label="icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>Fut Mais</span>
+
+  <span class="spacer"></span>
+  <a href="/players" class="icon">
+    <button
+      mat-mini-fab
+      color="link"
+      aria-label="Example icon button with a home icon"
+    >
+      <mat-icon>home</mat-icon>
+    </button>
+  </a>
+  <a href="/players">
+    <button
+      mat-mini-fab
+      color="link"
+      aria-label="Example icon button with a home icon"
+    >
+      <mat-icon>share</mat-icon>
+    </button>
+  </a>
+</mat-toolbar>
+
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav">
+    <a href="/players">
+      <button (click)="teste()" mat-raised-button>
+        <mat-icon>person</mat-icon>
+        Players
+      </button>
+    </a>
+    <a href="/team-uploader">
+      <button (click)="teste()" mat-raised-button>
+        <mat-icon>groups</mat-icon>
+        Team Uploader
+      </button>
+    </a>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

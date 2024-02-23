@@ -1,6 +1,9 @@
 footer {
   background-color: rgb(114, 110, 110);
   padding: 20px;
+  position: fixed;
+  bottom: 0px;
+  width: -webkit-fill-available;
 
   .logo-container {
     display: flex;
@@ -39,7 +42,6 @@ footer {
           margin-left: 5px;
           font-size: 12px; /* Tamanho do texto ao lado do logo */
         }
-
       }
     }
   }

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
 import { getDatabase, ref, onValue, child, get } from 'firebase/database';
 import { Times } from '../../models/times.dto';
+import { collection, addDoc, getFirestore, getDocs } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,31 +14,17 @@ export class TimesService {
 
   constructor(private firestore: Firestore) {}
 
-  getTimes(): Promise<Times[]> {
-    return new Promise((resolve, reject) => {
-      get(child(this.dbRef, 'time'))
-        .then((snapshot) => {
-          if (snapshot.exists()) {
-            const times: Times[] = [];
-            for (const time in snapshot.val()) {
-              times.push({
-                nomeTime: this.capitalize(time),
-                brasao: snapshot.val()[time].brasao,
-                jogadores: snapshot.val()[time].jogadores,
-              });
-            }
-            resolve(times);
-          } else {
-            reject('No data available');
-          }
-        })
-        .catch((error) => {
-          reject(error);
-        });
-    });
+  async addTime(time: Times) {
+    const db = getFirestore();
+    const docRef = await addDoc(collection(db, 'time'), time);
+    console.log('Document written with ID: ', docRef.id);
   }
 
-  private capitalize(str: string): string {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+  async getTime() {
+    const db = getFirestore();
+    const timesCol = collection(db, 'time');
+    const timesSnapshot = await getDocs(timesCol);
+    const timesList = timesSnapshot.docs.map((doc) => doc.data());
+    return timesList;
   }
 }
