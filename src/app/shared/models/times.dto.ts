@@ -10,4 +10,5 @@ export interface Jogadores {
   nacionalidade: string;
   posicao: string;
   pontuacao: number;
+  foto: string;
 }
